@@ -1,17 +1,25 @@
 package gwr.com.birchhaze;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import JSON.InternetConnectionChecker;
+import JSON.LoadJSONStringToDataBase;
+
 
 public class MainActivity extends ActionBarActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if(InternetConnectionChecker.isConnected(this))
+        LoadJSONStringToDataBase.Load("http://psporysz.boo.pl/inne/document.json",this);
+        
+
     }
 
 
