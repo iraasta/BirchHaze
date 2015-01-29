@@ -1,9 +1,18 @@
 package gwr.com.birchhaze;
 
+import android.graphics.Bitmap;
+import android.graphics.Point;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.TransitionDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+
+import gwr.com.birchhaze.background.BackgroundManager;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +21,26 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                BackgroundManager.loadBackground("warszawa", MainActivity.this, new BackgroundManager.OnLoadListener() {
+                    @Override
+                    public void onLoaded(final Bitmap bmp) {
+                        MainActivity.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                ((ImageView) findViewById(R.id.background)).setImageBitmap(bmp);
+                            }
+                        });
+                    }
+                });
+
+
+            }
+        }).start();
+
     }
 
 
@@ -35,5 +64,11 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void speak(View view) {
+        TransitionDrawable transition = (TransitionDrawable) view.getBackground();
+        transition.startTransition(1000);
+
     }
 }
