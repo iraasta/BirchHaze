@@ -22,24 +22,6 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                BackgroundManager.loadBackground("warszawa", MainActivity.this, new BackgroundManager.OnLoadListener() {
-                    @Override
-                    public void onLoaded(final Bitmap bmp) {
-                        MainActivity.this.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                ((ImageView) findViewById(R.id.background)).setImageBitmap(bmp);
-                            }
-                        });
-                    }
-                });
-
-
-            }
-        }).start();
 
     }
 
@@ -67,8 +49,28 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void speak(View view) {
-        TransitionDrawable transition = (TransitionDrawable) view.getBackground();
+        final TransitionDrawable transition = (TransitionDrawable) view.getBackground();
         transition.startTransition(1000);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                BackgroundManager.loadBackground("warszawa", MainActivity.this, new BackgroundManager.OnLoadListener() {
+                    @Override
+                    public void onLoaded(final Bitmap bmp) {
+                        MainActivity.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                ((ImageView) findViewById(R.id.background)).setImageBitmap(bmp);
+                                transition.reverseTransition(600);
+                            }
+                        });
+                    }
+                });
+
+
+            }
+        }).start();
 
     }
 }
