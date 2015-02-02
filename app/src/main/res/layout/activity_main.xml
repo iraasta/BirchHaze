@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"  tools:context=".MainActivity">
 
+
     <ImageView
         android:contentDescription="@string/city"
         android:id="@+id/background"
@@ -9,9 +10,245 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         />
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="City"
+        android:textSize="50dp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/link_text_material_light"
+        android:textColorHighlight="@color/accent_material_dark"
+        android:id="@+id/CityView"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/button"
+        android:layout_alignEnd="@+id/button" />
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pager"
+        android:layout_below="@id/CityView">
+
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="380dp"
+            android:orientation="vertical"
+            android:id="@+id/DayPage1">
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:id="@+id/Day1"
+                android:text="Today"
+                android:editable="false"
+                android:layout_width="@dimen/abc_panel_menu_list_width"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day1Temperature"
+                android:text="Day1Temperature"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="380dp"
+            android:orientation="vertical"
+            android:id="@+id/DayPage2">
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:id="@+id/Day2"
+                android:text="Tomorrow"
+                android:editable="false"
+                android:layout_width="@dimen/abc_panel_menu_list_width"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day2Temperature"
+                android:text="Day2Temperature"
+                />
+
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="380dp"
+            android:orientation="vertical"
+            android:id="@+id/DayPage3">
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:id="@+id/Day3"
+                android:text="Day3"
+                android:editable="false"
+                android:layout_width="@dimen/abc_panel_menu_list_width"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day3Temperature"
+                android:text="Day3Temperature"
+                />
+
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="380dp"
+            android:orientation="vertical"
+            android:id="@+id/DayPage4">
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:id="@+id/Day4"
+                android:text="Day4"
+                android:editable="false"
+                android:layout_width="@dimen/abc_panel_menu_list_width"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day4Temperature"
+                android:text="Day4Temperature" />
+
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="380dp"
+            android:orientation="vertical"
+            android:id="@+id/DayPage5">
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:id="@+id/Day5"
+                android:text="Day5"
+                android:editable="false"
+                android:layout_width="@dimen/abc_panel_menu_list_width"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day5Temperature"
+                android:text="Day5Temperature" />
+
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="380dp"
+            android:orientation="vertical"
+            android:id="@+id/DayPage6">
+
+            <EditText
+
+                android:layout_height="wrap_content"
+                android:id="@+id/Day6"
+                android:text="Day6"
+                android:editable="false"
+                android:layout_width="@dimen/abc_panel_menu_list_width"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day6Temperature"
+                android:text="Day6Temperature" />
+
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="380dp"
+            android:orientation="vertical"
+            android:id="@+id/DayPage7">
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:id="@+id/Day7"
+                android:text="Day7"
+                android:editable="false"
+                android:layout_width="@dimen/abc_panel_menu_list_width"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day7Temperature"
+                android:text="Day7Temperature" />
+
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="380dp"
+            android:orientation="vertical"
+            android:id="@+id/DayPage8">
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:id="@+id/Day8"
+                android:text="Day8"
+                android:editable="false"
+                android:layout_width="@dimen/abc_panel_menu_list_width"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day8Temperature"
+                android:text="Day8Temperature" />
+
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="380dp"
+            android:orientation="vertical"
+            android:id="@+id/DayPage9">
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:id="@+id/Day9"
+                android:text="Day9"
+                android:editable="false"
+                android:layout_width="@dimen/abc_panel_menu_list_width"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day9Temperature"
+                android:text="Day9Temperature" />
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="380dp"
+            android:orientation="vertical"
+            android:id="@+id/DayPage10">
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:id="@+id/Day10"
+                android:text="Day10"
+                android:editable="false"
+                android:layout_width="@dimen/abc_panel_menu_list_width"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day10Temperature"
+                android:text="Day10Temperature" />
+
+        </LinearLayout>
+
+    </android.support.v4.view.ViewPager>
     <Button
         android:layout_width="70dp"
         android:layout_height="70dp"
