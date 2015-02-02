@@ -23,23 +23,29 @@
         android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button" />
+        android:layout_alignEnd="@+id/button"
+        />
 
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/pager"
-        android:layout_below="@id/CityView">
+        android:layout_below="@id/CityView"
+        android:layout_margin="20dp"
+        android:padding="15dp"
+        android:background="#99000000">
 
         <LinearLayout android:layout_width="wrap_content"
             android:layout_height="380dp"
             android:orientation="vertical"
-            android:id="@+id/DayPage1">
+            android:id="@+id/DayPage1"
+            >
 
             <EditText
                 android:layout_height="wrap_content"
                 android:id="@+id/Day1"
                 android:text="Today"
+                android:textColor="@android:color/white"
                 android:editable="false"
                 android:layout_width="@dimen/abc_panel_menu_list_width"
                 />
@@ -49,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Day1Temperature"
+                android:textColor="@android:color/white"
                 android:text="Day1Temperature"
                 />
 
