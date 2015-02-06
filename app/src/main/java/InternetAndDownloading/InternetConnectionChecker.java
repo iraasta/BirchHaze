@@ -1,4 +1,4 @@
-package JSON;
+package InternetAndDownloading;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

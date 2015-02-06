@@ -14,6 +14,7 @@ public class DataBase {
         return  instance;
     }
     private DataBase(){
+        currentCity = new City();
         JSONString = null;
     }
 
@@ -24,5 +25,15 @@ public class DataBase {
     public String getJSONString(){
         return JSONString;
     }
+
+    private City currentCity;
+    public void setCurrentCity(City city){
+        this.currentCity = city;
+    }
+    public City getCity(){
+        return currentCity;
+    }
+
+
 
 }
