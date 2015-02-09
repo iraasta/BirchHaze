@@ -20,6 +20,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import InternetAndDownloading.JSONAsyncTask;
+import InternetAndDownloading.LoadJSONStringToDataBase;
 import gwr.com.birchhaze.STT.SpeechToText;
 import gwr.com.birchhaze.background.BackgroundManager;
 
@@ -48,7 +50,13 @@ public class MainActivity extends ActionBarActivity {
             }
             String cityName = (suggestedWords.get(0).charAt(0) + "").toUpperCase() + suggestedWords.get(0).substring(1);
             handleSpeech(suggestedWords.get(0));
-            ((TextView)findViewById(R.id.CityView)).setText(cityName);
+            LoadJSONStringToDataBase.Load(cityName, this, new JSONAsyncTask.OnFinishedListener() {
+                @Override
+                public void onFinished(String json) {
+
+                }
+            });
+            ((TextView) findViewById(R.id.CityView)).setText(cityName);
         }
 
         //tss code here
