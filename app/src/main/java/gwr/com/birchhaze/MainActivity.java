@@ -5,8 +5,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import DataBase.City;
 import InternetAndDownloading.InternetConnectionChecker;
-import InternetAndDownloading.LoadJSONStringToDataBase;
+import InternetAndDownloading.JSONToDataBaseLoader;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -16,8 +17,15 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(InternetConnectionChecker.isConnected(this))
-        LoadJSONStringToDataBase.Load("http://api.openweathermap.org/data/2.5/forecast?id=524901",this);
+        if(InternetConnectionChecker.isConnected(this)) {
+
+            JSONToDataBaseLoader.Load("Kraków",this, new JSONToDataBaseLoader.OnFinishedListener() {
+                @Override
+                public void onFinished(City city) {
+
+                }
+            });
+        }
 
 
     }
