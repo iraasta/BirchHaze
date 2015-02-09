@@ -2,6 +2,7 @@ package gwr.com.birchhaze.background;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.util.Log;
 
 import com.android.volley.Request;
@@ -11,6 +12,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.text.Normalizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,13 +25,15 @@ public class BackgroundManager {
 
 // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
-        final String url ="http://www." + name +  ".jpg.to";
+        final String url ="http://www." + stripText(name) +  ".jpg.to";
+        Log.v("uri", Uri.parse(url).toString());
 
 // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener() {
                     @Override
                     public void onResponse(Object response) {
+
                         Log.v("Log", (String)response);
                         Matcher m = Pattern.compile("(?<=src=)\".*\"", Pattern.CASE_INSENSITIVE).matcher((String) response);
                         Log.v("Match",m.find() + "");
@@ -46,6 +50,7 @@ public class BackgroundManager {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.v("Error", error.toString());
             }
         });
 // Add the request to the RequestQueue.
@@ -54,6 +59,22 @@ public class BackgroundManager {
     }
     public interface OnLoadListener{
         public void onLoaded(Bitmap bmp);
+    }
+
+    private static String stripText(String title)
+    {
+        String input = title.trim().toLowerCase();
+        String tmp = input.replace("ą", "a");
+        tmp = tmp.replace("ć", "c");
+        tmp = tmp.replace("ę", "e");
+        tmp = tmp.replace("ł", "l");
+        tmp = tmp.replace("ń", "n");
+        tmp = tmp.replace("ó", "o");
+        tmp = tmp.replace("ś", "s");
+        tmp = tmp.replace("ź", "z");
+        tmp = tmp.replace("ż", "z");
+        String output = tmp.replace(" ", "-");
+        return output;
     }
 
     private static Bitmap fastblur(Bitmap sentBitmap, int radius) {

@@ -1,23 +1,26 @@
 package gwr.com.birchhaze;
 
+import android.content.Intent;
+import android.speech.RecognizerIntent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.graphics.Bitmap;
-import android.graphics.Point;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Display;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.HorizontalScrollView;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import gwr.com.birchhaze.STT.SpeechToText;
 import gwr.com.birchhaze.background.BackgroundManager;
 
 
@@ -33,7 +36,26 @@ public class MainActivity extends ActionBarActivity {
         viewPager.setAdapter(new ViewGroupPagerAdapter((ViewGroup) findViewById(R.id.pager)));
 
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //check speech recognition result
+        if (requestCode == SpeechToText.VR_REQUEST && resultCode == RESULT_OK)
+        {
+            //store the returned word list as an ArrayList
+            ArrayList<String> suggestedWords = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            for (int i = 0; i < suggestedWords.size(); i++) {
+                Log.v(SpeechToText.LOG_TAG, suggestedWords.get(i));
+            }
+            String cityName = (suggestedWords.get(0).charAt(0) + "").toUpperCase() + suggestedWords.get(0).substring(1);
+            handleSpeech(suggestedWords.get(0));
+            ((TextView)findViewById(R.id.CityView)).setText(cityName);
+        }
 
+        //tss code here
+
+        //call superclass method
+        super.onActivityResult(requestCode, resultCode, data);
+    }
     public class ViewGroupPagerAdapter extends PagerAdapter {
         public ViewGroupPagerAdapter(ViewGroup viewGroup) {
             while (viewGroup.getChildCount() > 0) {
@@ -98,13 +120,18 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void speak(View view) {
-        final TransitionDrawable transition = (TransitionDrawable) view.getBackground();
-        transition.startTransition(1000);
 
+        SpeechToText stt = new SpeechToText(this, (Button)findViewById(R.id.speech_button));
+    }
+
+    private void handleSpeech(final String result)
+    {
+        final TransitionDrawable transition = (TransitionDrawable) findViewById(R.id.speech_button).getBackground();
+        transition.startTransition(1000);
         new Thread(new Runnable() {
             @Override
             public void run() {
-                BackgroundManager.loadBackground("warszawa", MainActivity.this, new BackgroundManager.OnLoadListener() {
+                BackgroundManager.loadBackground(result, MainActivity.this, new BackgroundManager.OnLoadListener() {
                     @Override
                     public void onLoaded(final Bitmap bmp) {
                         MainActivity.this.runOnUiThread(new Runnable() {
