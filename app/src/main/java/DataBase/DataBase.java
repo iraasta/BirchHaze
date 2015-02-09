@@ -27,8 +27,9 @@ public class DataBase {
     }
 
     private City currentCity;
-    public void setCurrentCity(City city){
+    public City setCurrentCity(City city){
         this.currentCity = city;
+        return city;
     }
     public City getCity(){
         return currentCity;
