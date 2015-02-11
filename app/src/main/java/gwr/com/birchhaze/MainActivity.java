@@ -1,13 +1,13 @@
 package gwr.com.birchhaze;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.TransitionDrawable;
+import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.graphics.Bitmap;
-import android.graphics.drawable.TransitionDrawable;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,8 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DataBase.City;
-import InternetAndDownloading.InternetConnectionChecker;
-import InternetAndDownloading.JSONAsyncTask;
 import InternetAndDownloading.JSONToDataBaseLoader;
 import gwr.com.birchhaze.STT.SpeechToText;
 import gwr.com.birchhaze.background.BackgroundManager;
@@ -56,7 +54,7 @@ public class MainActivity extends ActionBarActivity {
                 @Override
                 public void onFinished(City city) {
 
-                    //TODO RAFAŁ
+                    
 
                 }
             });

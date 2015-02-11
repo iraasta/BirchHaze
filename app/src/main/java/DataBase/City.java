@@ -44,6 +44,9 @@ public class City {
         forecasts.add(dayForecast);
     }
 
+    public ArrayList<DayForecast> getForecasts(){
+        return forecasts;
+    }
     public String getName(){
         return name;
     }
