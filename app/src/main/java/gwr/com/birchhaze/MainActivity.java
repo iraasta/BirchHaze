@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -158,7 +159,7 @@ public class MainActivity extends ActionBarActivity {
             String[] week = {"NULL","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota"};
             String today = "Dzisiaj";
             String tomorrow = "Jutro";
-            String celciusString ="C";
+            String celciusString ="°C";
 
             EditText et = (EditText) findViewById(DayID[position]);
 
@@ -169,11 +170,13 @@ public class MainActivity extends ActionBarActivity {
             else
             et.setText(week[c.get(Calendar.DAY_OF_WEEK)+position]);
 
-            DayForecast forecast = new DayForecast();
+            TextView tv = (TextView) findViewById(TemperatureID[position]);
 
             if(forecasts != null) {
-                TextView tv = (TextView) findViewById(TemperatureID[position]);
-                tv.setText(forecasts.get(position).getTempCelsius() + "");
+
+                tv.setText(new BigDecimal(forecasts.get(position).getTempCelsius()).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue() + celciusString);
+            }else {
+                tv.setText("");
             }
         }
 
