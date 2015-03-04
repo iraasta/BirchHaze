@@ -16,6 +16,10 @@ public class City {
         forecasts = new ArrayList<DayForecast>();
     }
 
+    public ArrayList<DayForecast> getForecasts() {
+        return forecasts;
+    }
+
     public City(String name, double lon , double lat, String country , int population){
         forecasts = new ArrayList<DayForecast>();
         this.name = name;

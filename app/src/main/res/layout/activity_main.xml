@@ -68,6 +68,7 @@
             <EditText
                 android:layout_height="wrap_content"
                 android:id="@+id/Day2"
+                android:textColor="@android:color/white"
                 android:text="Tomorrow"
                 android:editable="false"
                 android:layout_width="@dimen/abc_panel_menu_list_width"
@@ -77,6 +78,7 @@
                 android:textSize="@dimen/abc_text_size_body_2_material"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
                 android:id="@+id/Day2Temperature"
                 android:text="Day2Temperature"
                 />
@@ -92,6 +94,7 @@
                 android:id="@+id/Day3"
                 android:text="Day3"
                 android:editable="false"
+                android:textColor="@android:color/white"
                 android:layout_width="@dimen/abc_panel_menu_list_width"
                 />
 
@@ -100,6 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Day3Temperature"
+                android:textColor="@android:color/white"
                 android:text="Day3Temperature"
                 />
 
@@ -114,6 +118,7 @@
                 android:id="@+id/Day4"
                 android:text="Day4"
                 android:editable="false"
+                android:textColor="@android:color/white"
                 android:layout_width="@dimen/abc_panel_menu_list_width"
                 />
 
@@ -122,6 +127,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Day4Temperature"
+                android:textColor="@android:color/white"
                 android:text="Day4Temperature" />
 
         </LinearLayout>
@@ -135,6 +141,7 @@
                 android:id="@+id/Day5"
                 android:text="Day5"
                 android:editable="false"
+                android:textColor="@android:color/white"
                 android:layout_width="@dimen/abc_panel_menu_list_width"
                 />
 
@@ -143,6 +150,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Day5Temperature"
+                android:textColor="@android:color/white"
                 android:text="Day5Temperature" />
 
         </LinearLayout>
@@ -157,6 +165,7 @@
                 android:id="@+id/Day6"
                 android:text="Day6"
                 android:editable="false"
+                android:textColor="@android:color/white"
                 android:layout_width="@dimen/abc_panel_menu_list_width"
                 />
 
@@ -165,6 +174,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Day6Temperature"
+                android:textColor="@android:color/white"
                 android:text="Day6Temperature" />
 
         </LinearLayout>
@@ -178,6 +188,7 @@
                 android:id="@+id/Day7"
                 android:text="Day7"
                 android:editable="false"
+                android:textColor="@android:color/white"
                 android:layout_width="@dimen/abc_panel_menu_list_width"
                 />
 
@@ -186,6 +197,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Day7Temperature"
+                android:textColor="@android:color/white"
                 android:text="Day7Temperature" />
 
         </LinearLayout>
@@ -199,6 +211,7 @@
                 android:id="@+id/Day8"
                 android:text="Day8"
                 android:editable="false"
+                android:textColor="@android:color/white"
                 android:layout_width="@dimen/abc_panel_menu_list_width"
                 />
 
@@ -207,6 +220,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Day8Temperature"
+                android:textColor="@android:color/white"
                 android:text="Day8Temperature" />
 
         </LinearLayout>
@@ -220,6 +234,7 @@
                 android:id="@+id/Day9"
                 android:text="Day9"
                 android:editable="false"
+                android:textColor="@android:color/white"
                 android:layout_width="@dimen/abc_panel_menu_list_width"
                 />
 
@@ -228,6 +243,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Day9Temperature"
+                android:textColor="@android:color/white"
                 android:text="Day9Temperature" />
 
         </LinearLayout>
@@ -242,6 +258,7 @@
                 android:id="@+id/Day10"
                 android:text="Day10"
                 android:editable="false"
+                android:textColor="@android:color/white"
                 android:layout_width="@dimen/abc_panel_menu_list_width"
                 />
 
@@ -250,6 +267,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Day10Temperature"
+                android:textColor="@android:color/white"
                 android:text="Day10Temperature" />
 
         </LinearLayout>

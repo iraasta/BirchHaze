@@ -1,6 +1,7 @@
 package gwr.com.birchhaze;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.speech.RecognizerIntent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -14,13 +15,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import DataBase.City;
+import DataBase.DayForecast;
 import InternetAndDownloading.InternetConnectionChecker;
 import InternetAndDownloading.JSONAsyncTask;
 import InternetAndDownloading.JSONToDataBaseLoader;
@@ -40,6 +45,8 @@ public class MainActivity extends ActionBarActivity {
         viewPager.setAdapter(new ViewGroupPagerAdapter((ViewGroup) findViewById(R.id.pager)));
 
     }
+
+    ArrayList<DayForecast> forecasts = null;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //check speech recognition result
@@ -50,13 +57,14 @@ public class MainActivity extends ActionBarActivity {
             for (int i = 0; i < suggestedWords.size(); i++) {
                 Log.v(SpeechToText.LOG_TAG, suggestedWords.get(i));
             }
-            String cityName = (suggestedWords.get(0).charAt(0) + "").toUpperCase() + suggestedWords.get(0).substring(1);
+            final String cityName = (suggestedWords.get(0).charAt(0) + "").toUpperCase() + suggestedWords.get(0).substring(1);
             handleSpeech(suggestedWords.get(0));
             JSONToDataBaseLoader.Load(cityName, this, new JSONToDataBaseLoader.OnFinishedListener() {
                 @Override
                 public void onFinished(City city) {
 
                     //TODO RAFAŁ
+                    forecasts = city.getForecasts();
 
                 }
             });
@@ -68,6 +76,13 @@ public class MainActivity extends ActionBarActivity {
         //call superclass method
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+    void toast(String text)
+    {
+        Toast.makeText(this,text,Toast.LENGTH_LONG);
+    }
+
+
     public class ViewGroupPagerAdapter extends PagerAdapter {
         public ViewGroupPagerAdapter(ViewGroup viewGroup) {
             while (viewGroup.getChildCount() > 0) {
@@ -75,23 +90,99 @@ public class MainActivity extends ActionBarActivity {
                 viewGroup.removeViewAt(0);
             }
         }
+
+
+        int itr = -1;
+        int pos = -1;
+        int del = -1;
+        int position = 1;
+
+        void getposition()
+        {
+                 if(del == 3) {
+                     //Log.w("pozycja : ", 1 + "");
+                     position = 1;
+                     del = -1;
+                 }
+            else if(del == 4) {
+                     //Log.w("pozycja : ", 2 + "");
+                     position = 2;
+                     del = -1;
+                 }
+            else if(del == 5) {
+                     //Log.w("pozycja : ", 9 + "");
+                     position = 3;
+                     del = -1;
+                 }
+            else if(del == 6) {
+                     //Log.w("pozycja : ", 10 + "");
+                     position = 4;
+                     del = -1;
+                 }
+            else if(itr<pos) {
+                     //Log.w("pozycja : ", (pos - 1) + "");
+                     position = pos - 1;
+                 }
+            else if(itr>pos) {
+                     //Log.w("pozycja : ", (pos + 3) + "");
+                     position = pos + 3;
+                 }
+
+        }
+
         private List<View> views = new ArrayList<View>();
 
         @Override
         public Object instantiateItem(ViewGroup parent, int position) {
             View view = views.get(position);
+            //itr = pos;
+            //pos = position;
+            //getposition();
             ViewPager.LayoutParams lp = new ViewPager.LayoutParams();
             lp.width = ViewPager.LayoutParams.FILL_PARENT;
             lp.height = ViewPager.LayoutParams.FILL_PARENT;
             view.setLayoutParams(lp);
             parent.addView(view);
+            make(position);
             return view;
+        }
+
+        Calendar c = Calendar.getInstance();
+
+        void make(int position)
+        {
+            //View v = views.get(position-1);
+            int[] DayID = {R.id.Day1,R.id.Day2,R.id.Day3,R.id.Day4,R.id.Day5,R.id.Day6,R.id.Day7,R.id.Day8,R.id.Day9,R.id.Day10};
+            int[] TemperatureID = {R.id.Day1Temperature,R.id.Day2Temperature,R.id.Day3Temperature,R.id.Day4Temperature,R.id.Day5Temperature,R.id.Day6Temperature,R.id.Day7Temperature,R.id.Day8Temperature,R.id.Day9Temperature,R.id.Day10Temperature};
+
+            String[] week = {"NULL","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota"};
+            String today = "Dzisiaj";
+            String tomorrow = "Jutro";
+            String celciusString ="C";
+
+            EditText et = (EditText) findViewById(DayID[position]);
+
+            if(position == 0)
+            et.setText(today);
+            else if(position == 1)
+            et.setText(tomorrow);
+            else
+            et.setText(week[c.get(Calendar.DAY_OF_WEEK)+position]);
+
+            DayForecast forecast = new DayForecast();
+
+            if(forecasts != null) {
+                TextView tv = (TextView) findViewById(TemperatureID[position]);
+                tv.setText(forecasts.get(position).getTempCelsius() + "");
+            }
         }
 
         @Override
         public void destroyItem(ViewGroup parent, int position, Object object) {
             View view = (View) object;
             parent.removeView(view);
+            //del = position;
+            //getposition();
         }
 
         @Override
