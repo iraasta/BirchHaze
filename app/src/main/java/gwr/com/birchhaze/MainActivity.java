@@ -54,7 +54,7 @@ public class MainActivity extends ActionBarActivity {
                 @Override
                 public void onFinished(City city) {
 
-                    
+
 
                 }
             });
