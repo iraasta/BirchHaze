@@ -62,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
             }
             final String cityName = (suggestedWords.get(0).charAt(0) + "").toUpperCase() + suggestedWords.get(0).substring(1);
             handleSpeech(suggestedWords.get(0));
-            JSONToDataBaseLoader.Load(cityName, this, new JSONToDataBaseLoader.OnFinishedListener() {
+            JSONToDataBaseLoader.Load(cityName.replace(" ", "%20"), this, new JSONToDataBaseLoader.OnFinishedListener() {
                 @Override
                 public void onFinished(City city) {
 

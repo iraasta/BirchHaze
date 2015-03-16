@@ -25,7 +25,7 @@ public class BackgroundManager {
 
 // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
-        final String url ="http://www." + stripText(name) +  ".jpg.to";
+        final String url ="http://www." + stripText(name).replace(" ", "_") +  ".jpg.to";
         Log.v("uri", Uri.parse(url).toString());
 
 // Request a string response from the provided URL.
