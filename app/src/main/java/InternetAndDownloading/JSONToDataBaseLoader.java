@@ -5,7 +5,6 @@ import android.content.Context;
 
 import Converters.JSONObjectToCity;
 import Converters.StringToJSONObject;
-
 import DataBase.City;
 import DataBase.DataBase;
 import Settings.Settings;
@@ -31,6 +30,7 @@ public class JSONToDataBaseLoader {
 
                 City city = dataBase.setCurrentCity(JSONObjectToCity.parseJSONObject(StringToJSONObject.getJSONObjectFromString(json, context), context));
                 progressDialog.dismiss();
+
                 ofl.onFinished(city);
 
             }

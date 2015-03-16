@@ -54,7 +54,9 @@ public class MainActivity extends ActionBarActivity {
                 @Override
                 public void onFinished(City city) {
 
+                    //How to send email with forecast
 
+                    //SendForecastByEmail.SendForeCast(MainActivity.this);
 
                 }
             });
