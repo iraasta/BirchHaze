@@ -53,9 +53,27 @@
                 android:textSize="@dimen/abc_text_size_body_2_material"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/Day1Type"
+                android:textColor="@android:color/white"
+                android:text="Day1Type"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/Day1Temperature"
                 android:textColor="@android:color/white"
                 android:text="Day1Temperature"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day1Wind"
+                android:textColor="@android:color/white"
+                android:text="Day1Wind"
                 />
 
         </LinearLayout>
@@ -78,9 +96,27 @@
                 android:textSize="@dimen/abc_text_size_body_2_material"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/Day2Type"
+                android:textColor="@android:color/white"
+                android:text="Day2Type"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
                 android:id="@+id/Day2Temperature"
                 android:text="Day2Temperature"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day2Wind"
+                android:textColor="@android:color/white"
+                android:text="Day2Wind"
                 />
 
         </LinearLayout>
@@ -102,9 +138,27 @@
                 android:textSize="@dimen/abc_text_size_body_2_material"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/Day3Type"
+                android:textColor="@android:color/white"
+                android:text="Day3Type"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/Day3Temperature"
                 android:textColor="@android:color/white"
                 android:text="Day3Temperature"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day3Wind"
+                android:textColor="@android:color/white"
+                android:text="Day3Wind"
                 />
 
         </LinearLayout>
@@ -126,9 +180,27 @@
                 android:textSize="@dimen/abc_text_size_body_2_material"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/Day4Type"
+                android:textColor="@android:color/white"
+                android:text="Day4Type"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/Day4Temperature"
                 android:textColor="@android:color/white"
                 android:text="Day4Temperature" />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day4Wind"
+                android:textColor="@android:color/white"
+                android:text="Day4Wind"
+                />
 
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
@@ -149,9 +221,27 @@
                 android:textSize="@dimen/abc_text_size_body_2_material"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/Day5Type"
+                android:textColor="@android:color/white"
+                android:text="Day5Type"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/Day5Temperature"
                 android:textColor="@android:color/white"
                 android:text="Day5Temperature" />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day5Wind"
+                android:textColor="@android:color/white"
+                android:text="Day5Wind"
+                />
 
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
@@ -173,9 +263,27 @@
                 android:textSize="@dimen/abc_text_size_body_2_material"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/Day6Type"
+                android:textColor="@android:color/white"
+                android:text="Day6Type"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/Day6Temperature"
                 android:textColor="@android:color/white"
                 android:text="Day6Temperature" />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day6Wind"
+                android:textColor="@android:color/white"
+                android:text="Day6Wind"
+                />
 
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
@@ -196,9 +304,27 @@
                 android:textSize="@dimen/abc_text_size_body_2_material"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/Day7Type"
+                android:textColor="@android:color/white"
+                android:text="Day7Type"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/Day7Temperature"
                 android:textColor="@android:color/white"
                 android:text="Day7Temperature" />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day7Wind"
+                android:textColor="@android:color/white"
+                android:text="Day7Wind"
+                />
 
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
@@ -219,9 +345,28 @@
                 android:textSize="@dimen/abc_text_size_body_2_material"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/Day8Type"
+                android:textColor="@android:color/white"
+                android:text="Day8Type"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/Day8Temperature"
                 android:textColor="@android:color/white"
                 android:text="Day8Temperature" />
+
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day8Wind"
+                android:textColor="@android:color/white"
+                android:text="Day8Wind"
+                />
 
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
@@ -242,9 +387,28 @@
                 android:textSize="@dimen/abc_text_size_body_2_material"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/Day9Type"
+                android:textColor="@android:color/white"
+                android:text="Day9Type"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/Day9Temperature"
                 android:textColor="@android:color/white"
                 android:text="Day9Temperature" />
+
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day9Wind"
+                android:textColor="@android:color/white"
+                android:text="Day9Wind"
+                />
 
         </LinearLayout>
 
@@ -266,9 +430,28 @@
                 android:textSize="@dimen/abc_text_size_body_2_material"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/Day10Type"
+                android:textColor="@android:color/white"
+                android:text="Day10Type"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/Day10Temperature"
                 android:textColor="@android:color/white"
                 android:text="Day10Temperature" />
+
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day10Wind"
+                android:textColor="@android:color/white"
+                android:text="Day10Wind"
+                />
 
         </LinearLayout>
 

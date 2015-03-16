@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,13 +37,14 @@ import gwr.com.birchhaze.background.BackgroundManager;
 
 public class MainActivity extends ActionBarActivity {
 
-    //ViewGroup viewGroup = getViewGroup();
+
+    ViewPager viewPager = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ViewPager viewPager= (ViewPager) findViewById(R.id.pager); // Retrieve the view pager
+        viewPager= (ViewPager) findViewById(R.id.pager); // Retrieve the view pager
         viewPager.setAdapter(new ViewGroupPagerAdapter((ViewGroup) findViewById(R.id.pager)));
 
     }
@@ -70,6 +72,7 @@ public class MainActivity extends ActionBarActivity {
                 }
             });
             ((TextView) findViewById(R.id.CityView)).setText(cityName);
+
         }
 
         //tss code here
@@ -133,12 +136,14 @@ public class MainActivity extends ActionBarActivity {
 
         private List<View> views = new ArrayList<View>();
 
+        private void refresh()
+        {
+            viewPager.getAdapter().notifyDataSetChanged();
+        }
+
         @Override
         public Object instantiateItem(ViewGroup parent, int position) {
             View view = views.get(position);
-            //itr = pos;
-            //pos = position;
-            //getposition();
             ViewPager.LayoutParams lp = new ViewPager.LayoutParams();
             lp.width = ViewPager.LayoutParams.FILL_PARENT;
             lp.height = ViewPager.LayoutParams.FILL_PARENT;
@@ -148,18 +153,25 @@ public class MainActivity extends ActionBarActivity {
             return view;
         }
 
+        @Override
+        public int getItemPosition(Object object) {
+            return POSITION_NONE;
+        }
+
         Calendar c = Calendar.getInstance();
 
         void make(int position)
         {
-            //View v = views.get(position-1);
             int[] DayID = {R.id.Day1,R.id.Day2,R.id.Day3,R.id.Day4,R.id.Day5,R.id.Day6,R.id.Day7,R.id.Day8,R.id.Day9,R.id.Day10};
             int[] TemperatureID = {R.id.Day1Temperature,R.id.Day2Temperature,R.id.Day3Temperature,R.id.Day4Temperature,R.id.Day5Temperature,R.id.Day6Temperature,R.id.Day7Temperature,R.id.Day8Temperature,R.id.Day9Temperature,R.id.Day10Temperature};
+            int[] TypeID = {R.id.Day1Type,R.id.Day2Type,R.id.Day3Type,R.id.Day4Type,R.id.Day5Type,R.id.Day6Type,R.id.Day7Type,R.id.Day8Type,R.id.Day9Type,R.id.Day10Type};
+            int[] WindID = {R.id.Day1Wind,R.id.Day2Wind,R.id.Day3Wind,R.id.Day4Wind,R.id.Day5Wind,R.id.Day6Wind,R.id.Day7Wind,R.id.Day8Wind,R.id.Day9Wind,R.id.Day10Wind};
 
             String[] week = {"NULL","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota"};
             String today = "Dzisiaj";
             String tomorrow = "Jutro";
             String celciusString ="°C";
+            String windString = "m/s";
 
             EditText et = (EditText) findViewById(DayID[position]);
 
@@ -170,14 +182,22 @@ public class MainActivity extends ActionBarActivity {
             else
             et.setText(week[c.get(Calendar.DAY_OF_WEEK)+position]);
 
-            TextView tv = (TextView) findViewById(TemperatureID[position]);
+            TextView Temperature = (TextView) findViewById(TemperatureID[position]);
+            TextView Type = (TextView) findViewById(TypeID[position]);
+            TextView Wind = (TextView) findViewById(WindID[position]);
 
             if(forecasts != null) {
 
-                tv.setText(new BigDecimal(forecasts.get(position).getTempCelsius()).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue() + celciusString);
+                Temperature.setText(new BigDecimal(forecasts.get(position).getTempCelsius()).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue() + celciusString);
+                Type.setText(forecasts.get(position).getWeather_description());
+                Wind.setText(forecasts.get(position).getWind_speed()+windString);
+                //refresh();
             }else {
-                tv.setText("");
+                Temperature.setText("");
+                Type.setText("");
+                Wind.setText("");
             }
+
         }
 
         @Override
