@@ -76,6 +76,12 @@
                 android:text="Day1Wind"
                 />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView1"
+                />
+
         </LinearLayout>
 
         <LinearLayout android:layout_width="wrap_content"
@@ -117,6 +123,12 @@
                 android:id="@+id/Day2Wind"
                 android:textColor="@android:color/white"
                 android:text="Day2Wind"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView2"
                 />
 
         </LinearLayout>
@@ -161,6 +173,12 @@
                 android:text="Day3Wind"
                 />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView3"
+                />
+
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
             android:layout_height="380dp"
@@ -202,6 +220,12 @@
                 android:text="Day4Wind"
                 />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView4"
+                />
+
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
             android:layout_height="380dp"
@@ -241,6 +265,12 @@
                 android:id="@+id/Day5Wind"
                 android:textColor="@android:color/white"
                 android:text="Day5Wind"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView5"
                 />
 
         </LinearLayout>
@@ -285,6 +315,12 @@
                 android:text="Day6Wind"
                 />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView6"
+                />
+
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
             android:layout_height="380dp"
@@ -324,6 +360,12 @@
                 android:id="@+id/Day7Wind"
                 android:textColor="@android:color/white"
                 android:text="Day7Wind"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView7"
                 />
 
         </LinearLayout>
@@ -368,6 +410,12 @@
                 android:text="Day8Wind"
                 />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView8"
+                />
+
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
             android:layout_height="380dp"
@@ -408,6 +456,12 @@
                 android:id="@+id/Day9Wind"
                 android:textColor="@android:color/white"
                 android:text="Day9Wind"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView9"
                 />
 
         </LinearLayout>
@@ -452,6 +506,13 @@
                 android:textColor="@android:color/white"
                 android:text="Day10Wind"
                 />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView10"
+            />
+
 
         </LinearLayout>
 

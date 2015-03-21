@@ -1,6 +1,7 @@
 package gwr.com.birchhaze;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.nfc.Tag;
 import android.speech.RecognizerIntent;
 import android.support.v4.view.PagerAdapter;
@@ -31,6 +32,7 @@ import DataBase.DayForecast;
 import InternetAndDownloading.InternetConnectionChecker;
 import InternetAndDownloading.JSONAsyncTask;
 import InternetAndDownloading.JSONToDataBaseLoader;
+import Thermometer.Thermometer;
 import gwr.com.birchhaze.STT.SpeechToText;
 import gwr.com.birchhaze.background.BackgroundManager;
 
@@ -66,7 +68,6 @@ public class MainActivity extends ActionBarActivity {
                 @Override
                 public void onFinished(City city) {
 
-                    //TODO RAFAŁ
                     forecasts = city.getForecasts();
 
                 }
@@ -166,6 +167,7 @@ public class MainActivity extends ActionBarActivity {
             int[] TemperatureID = {R.id.Day1Temperature,R.id.Day2Temperature,R.id.Day3Temperature,R.id.Day4Temperature,R.id.Day5Temperature,R.id.Day6Temperature,R.id.Day7Temperature,R.id.Day8Temperature,R.id.Day9Temperature,R.id.Day10Temperature};
             int[] TypeID = {R.id.Day1Type,R.id.Day2Type,R.id.Day3Type,R.id.Day4Type,R.id.Day5Type,R.id.Day6Type,R.id.Day7Type,R.id.Day8Type,R.id.Day9Type,R.id.Day10Type};
             int[] WindID = {R.id.Day1Wind,R.id.Day2Wind,R.id.Day3Wind,R.id.Day4Wind,R.id.Day5Wind,R.id.Day6Wind,R.id.Day7Wind,R.id.Day8Wind,R.id.Day9Wind,R.id.Day10Wind};
+            int[] TermometrID = {R.id.imageView1,R.id.imageView2,R.id.imageView3,R.id.imageView4,R.id.imageView5,R.id.imageView6,R.id.imageView7,R.id.imageView8,R.id.imageView9,R.id.imageView10};
 
             String[] week = {"NULL","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota"};
             String today = "Dzisiaj";
@@ -185,12 +187,18 @@ public class MainActivity extends ActionBarActivity {
             TextView Temperature = (TextView) findViewById(TemperatureID[position]);
             TextView Type = (TextView) findViewById(TypeID[position]);
             TextView Wind = (TextView) findViewById(WindID[position]);
+            ImageView Termometr = (ImageView) findViewById(TermometrID[position]);
 
             if(forecasts != null) {
 
-                Temperature.setText(new BigDecimal(forecasts.get(position).getTempCelsius()).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue() + celciusString);
+                double temperature;
+                temperature = new BigDecimal(forecasts.get(position).getTempCelsius()).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+                Temperature.setText(temperature + celciusString);
                 Type.setText(forecasts.get(position).getWeather_description());
                 Wind.setText(forecasts.get(position).getWind_speed()+windString);
+                Thermometer t1 = new Thermometer(Termometr , getApplicationContext(), Color.BLACK , (int) temperature);
+                t1.execute();
+
                 //refresh();
             }else {
                 Temperature.setText("");
