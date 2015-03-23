@@ -58,7 +58,6 @@ public class Thermometer extends AsyncTask<Integer,Void,Integer> {
         do{
             imageView.postInvalidate();
             double percentage = (double)(tmp - h) / h;
-            Log.v("test", percentage + "");
 
             paint.setColor(Color.rgb((int) ((1.0 - percentage) * 256), 0, (int) (percentage * 256)));
             canvas.drawRect(145, tmp, 158, 451, paint);

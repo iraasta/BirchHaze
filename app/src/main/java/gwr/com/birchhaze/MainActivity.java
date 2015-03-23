@@ -46,8 +46,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        viewPager= (ViewPager) findViewById(R.id.pager); // Retrieve the view pager
-        viewPager.setAdapter(new ViewGroupPagerAdapter((ViewGroup) findViewById(R.id.pager)));
+        //viewPager= (ViewPager) findViewById(R.id.pager); // Retrieve the view pager
+        //viewPager.setAdapter(new ViewGroupPagerAdapter((ViewGroup) findViewById(R.id.pager)));
 
     }
 
@@ -69,6 +69,8 @@ public class MainActivity extends ActionBarActivity {
                 public void onFinished(City city) {
 
                     forecasts = city.getForecasts();
+                    viewPager= (ViewPager) findViewById(R.id.pager); // Retrieve the view pager
+                    viewPager.setAdapter(new ViewGroupPagerAdapter((ViewGroup) findViewById(R.id.pager)));
 
                 }
             });
@@ -151,6 +153,7 @@ public class MainActivity extends ActionBarActivity {
             view.setLayoutParams(lp);
             parent.addView(view);
             make(position);
+
             return view;
         }
 
@@ -192,6 +195,7 @@ public class MainActivity extends ActionBarActivity {
             if(forecasts != null) {
 
                 double temperature;
+
                 temperature = new BigDecimal(forecasts.get(position).getTempCelsius()).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
                 Temperature.setText(temperature + celciusString);
                 Type.setText(forecasts.get(position).getWeather_description());
