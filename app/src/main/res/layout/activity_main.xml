@@ -41,7 +41,9 @@
             android:orientation="vertical"
             android:id="@+id/DayPage1"
             >
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
             <EditText
                 android:layout_height="wrap_content"
                 android:id="@+id/Day1"
@@ -58,6 +60,7 @@
                 android:id="@+id/Day1Type"
                 android:textColor="@android:color/white"
                 android:text="Day1Type"
+                android:layout_below="@+id/Day1"
                 />
 
             <TextView
@@ -67,6 +70,7 @@
                 android:id="@+id/Day1Temperature"
                 android:textColor="@android:color/white"
                 android:text="Day1Temperature"
+                android:layout_below="@+id/Day1Type"
                 />
 
             <TextView
@@ -76,16 +80,47 @@
                 android:id="@+id/Day1Wind"
                 android:textColor="@android:color/white"
                 android:text="Day1Wind"
+                android:layout_below="@+id/Day1Temperature"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day1TemperatureMax"
+                android:textColor="@android:color/white"
+                android:text="Temp. Max."
+                android:layout_below="@+id/Day1Wind"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day1TemperatureMin"
+                android:textColor="@android:color/white"
+                android:text="Temp. Min."
+                android:layout_below="@+id/Day1TemperatureMax"
+                />
+
+            <TextView
+                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Day1Pressure"
+                android:textColor="@android:color/white"
+                android:text="Pressure"
+                android:layout_below="@+id/Day1TemperatureMin"
                 />
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:layout_marginLeft="100dp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginTop="50dp"
                 android:id="@+id/imageView1"
                 />
-
+    </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout android:layout_width="wrap_content"
@@ -93,14 +128,17 @@
             android:orientation="vertical"
             android:id="@+id/DayPage2">
 
-            <EditText
-                android:layout_height="wrap_content"
-                android:id="@+id/Day2"
-                android:textColor="@android:color/white"
-                android:text="Tomorrow"
-                android:editable="false"
-                android:layout_width="@dimen/abc_panel_menu_list_width"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day2"
+                    android:text="Today"
+                    android:textColor="@android:color/white"
+                    android:editable="false"
+                    android:layout_width="@dimen/abc_panel_menu_list_width"
+                    />
 
             <TextView
                 android:textSize="@dimen/abc_text_size_body_2_material"
@@ -109,6 +147,7 @@
                 android:id="@+id/Day2Type"
                 android:textColor="@android:color/white"
                 android:text="Day2Type"
+                android:layout_below="@+id/Day2"
                 />
 
             <TextView
@@ -118,6 +157,7 @@
                 android:textColor="@android:color/white"
                 android:id="@+id/Day2Temperature"
                 android:text="Day2Temperature"
+                android:layout_below="@+id/Day2Type"
                 />
 
             <TextView
@@ -127,15 +167,45 @@
                 android:id="@+id/Day2Wind"
                 android:textColor="@android:color/white"
                 android:text="Day2Wind"
+                android:layout_below="@+id/Day2Temperature"
                 />
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day2TemperatureMax"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Max."
+                    android:layout_below="@+id/Day2Wind"
+                    />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
-                android:layout_marginBottom="70dp"
-                android:id="@+id/imageView2"
-                />
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day2TemperatureMin"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Min."
+                    android:layout_below="@+id/Day2TemperatureMax"
+                    />
+
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day2Pressure"
+                    android:textColor="@android:color/white"
+                    android:text="Pressure"
+                    android:layout_below="@+id/Day2TemperatureMin"
+                    />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/imageView2"
+        />
+</RelativeLayout>
 
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
@@ -143,14 +213,17 @@
             android:orientation="vertical"
             android:id="@+id/DayPage3">
 
-            <EditText
-                android:layout_height="wrap_content"
-                android:id="@+id/Day3"
-                android:text="Day3"
-                android:editable="false"
-                android:textColor="@android:color/white"
-                android:layout_width="@dimen/abc_panel_menu_list_width"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day3"
+                    android:text="Today"
+                    android:textColor="@android:color/white"
+                    android:editable="false"
+                    android:layout_width="@dimen/abc_panel_menu_list_width"
+                    />
 
             <TextView
                 android:textSize="@dimen/abc_text_size_body_2_material"
@@ -159,6 +232,7 @@
                 android:id="@+id/Day3Type"
                 android:textColor="@android:color/white"
                 android:text="Day3Type"
+                android:layout_below="@+id/Day3"
                 />
 
             <TextView
@@ -168,6 +242,7 @@
                 android:id="@+id/Day3Temperature"
                 android:textColor="@android:color/white"
                 android:text="Day3Temperature"
+                android:layout_below="@+id/Day3Type"
                 />
 
             <TextView
@@ -177,15 +252,45 @@
                 android:id="@+id/Day3Wind"
                 android:textColor="@android:color/white"
                 android:text="Day3Wind"
+                android:layout_below="@+id/Day3Temperature"
                 />
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day3TemperatureMax"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Max."
+                    android:layout_below="@+id/Day3Wind"
+                    />
 
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day3TemperatureMin"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Min."
+                    android:layout_below="@+id/Day3TemperatureMax"
+                    />
+
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day3Pressure"
+                    android:textColor="@android:color/white"
+                    android:text="Pressure"
+                    android:layout_below="@+id/Day3TemperatureMin"
+                    />
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:layout_marginLeft="100dp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginTop="50dp"
                 android:id="@+id/imageView3"
                 />
+        </RelativeLayout>
 
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
@@ -193,14 +298,17 @@
             android:orientation="vertical"
             android:id="@+id/DayPage4">
 
-            <EditText
-                android:layout_height="wrap_content"
-                android:id="@+id/Day4"
-                android:text="Day4"
-                android:editable="false"
-                android:textColor="@android:color/white"
-                android:layout_width="@dimen/abc_panel_menu_list_width"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day4"
+                    android:text="Today"
+                    android:textColor="@android:color/white"
+                    android:editable="false"
+                    android:layout_width="@dimen/abc_panel_menu_list_width"
+                    />
 
             <TextView
                 android:textSize="@dimen/abc_text_size_body_2_material"
@@ -209,6 +317,7 @@
                 android:id="@+id/Day4Type"
                 android:textColor="@android:color/white"
                 android:text="Day4Type"
+                android:layout_below="@+id/Day4"
                 />
 
             <TextView
@@ -217,7 +326,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/Day4Temperature"
                 android:textColor="@android:color/white"
-                android:text="Day4Temperature" />
+                android:text="Day4Temperature"
+                android:layout_below="@+id/Day4Type"
+                />
 
             <TextView
                 android:textSize="@dimen/abc_text_size_body_2_material"
@@ -226,15 +337,47 @@
                 android:id="@+id/Day4Wind"
                 android:textColor="@android:color/white"
                 android:text="Day4Wind"
+                android:layout_below="@+id/Day4Temperature"
                 />
+
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day4TemperatureMax"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Max."
+                    android:layout_below="@+id/Day4Wind"
+                    />
+
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day4TemperatureMin"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Min."
+                    android:layout_below="@+id/Day4TemperatureMax"
+                    />
+
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day4Pressure"
+                    android:textColor="@android:color/white"
+                    android:text="Pressure"
+                    android:layout_below="@+id/Day4TemperatureMin"
+                    />
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:layout_marginLeft="100dp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginTop="50dp"
                 android:id="@+id/imageView4"
                 />
+        </RelativeLayout>
 
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
@@ -242,14 +385,17 @@
             android:orientation="vertical"
             android:id="@+id/DayPage5">
 
-            <EditText
-                android:layout_height="wrap_content"
-                android:id="@+id/Day5"
-                android:text="Day5"
-                android:editable="false"
-                android:textColor="@android:color/white"
-                android:layout_width="@dimen/abc_panel_menu_list_width"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day5"
+                    android:text="Today"
+                    android:textColor="@android:color/white"
+                    android:editable="false"
+                    android:layout_width="@dimen/abc_panel_menu_list_width"
+                    />
 
             <TextView
                 android:textSize="@dimen/abc_text_size_body_2_material"
@@ -258,6 +404,7 @@
                 android:id="@+id/Day5Type"
                 android:textColor="@android:color/white"
                 android:text="Day5Type"
+                android:layout_below="@+id/Day5"
                 />
 
             <TextView
@@ -266,7 +413,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/Day5Temperature"
                 android:textColor="@android:color/white"
-                android:text="Day5Temperature" />
+                android:text="Day5Temperature"
+                android:layout_below="@+id/Day5Type"/>
 
             <TextView
                 android:textSize="@dimen/abc_text_size_body_2_material"
@@ -275,15 +423,47 @@
                 android:id="@+id/Day5Wind"
                 android:textColor="@android:color/white"
                 android:text="Day5Wind"
+                android:layout_below="@+id/Day5Temperature"
                 />
+
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day5TemperatureMax"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Max."
+                    android:layout_below="@+id/Day5Wind"
+                    />
+
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day5TemperatureMin"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Min."
+                    android:layout_below="@+id/Day5TemperatureMax"
+                    />
+
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day5Pressure"
+                    android:textColor="@android:color/white"
+                    android:text="Pressure"
+                    android:layout_below="@+id/Day5TemperatureMin"
+                    />
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:layout_marginLeft="100dp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginTop="50dp"
                 android:id="@+id/imageView5"
                 />
+        </RelativeLayout>
 
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
@@ -291,15 +471,17 @@
             android:orientation="vertical"
             android:id="@+id/DayPage6">
 
-            <EditText
-
-                android:layout_height="wrap_content"
-                android:id="@+id/Day6"
-                android:text="Day6"
-                android:editable="false"
-                android:textColor="@android:color/white"
-                android:layout_width="@dimen/abc_panel_menu_list_width"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day6"
+                    android:text="Today"
+                    android:textColor="@android:color/white"
+                    android:editable="false"
+                    android:layout_width="@dimen/abc_panel_menu_list_width"
+                    />
 
             <TextView
                 android:textSize="@dimen/abc_text_size_body_2_material"
@@ -308,6 +490,7 @@
                 android:id="@+id/Day6Type"
                 android:textColor="@android:color/white"
                 android:text="Day6Type"
+                android:layout_below="@+id/Day6"
                 />
 
             <TextView
@@ -316,7 +499,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/Day6Temperature"
                 android:textColor="@android:color/white"
-                android:text="Day6Temperature" />
+                android:text="Day6Temperature"
+                android:layout_below="@+id/Day6Type"/>
 
             <TextView
                 android:textSize="@dimen/abc_text_size_body_2_material"
@@ -325,15 +509,45 @@
                 android:id="@+id/Day6Wind"
                 android:textColor="@android:color/white"
                 android:text="Day6Wind"
+                android:layout_below="@+id/Day6Temperature"
                 />
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day6TemperatureMax"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Max."
+                    android:layout_below="@+id/Day6Wind"
+                    />
 
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day6TemperatureMin"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Min."
+                    android:layout_below="@+id/Day6TemperatureMax"
+                    />
+
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day6Pressure"
+                    android:textColor="@android:color/white"
+                    android:text="Pressure"
+                    android:layout_below="@+id/Day6TemperatureMin"
+                    />
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:layout_marginLeft="100dp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginTop="50dp"
                 android:id="@+id/imageView6"
                 />
+        </RelativeLayout>
 
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
@@ -341,14 +555,17 @@
             android:orientation="vertical"
             android:id="@+id/DayPage7">
 
-            <EditText
-                android:layout_height="wrap_content"
-                android:id="@+id/Day7"
-                android:text="Day7"
-                android:editable="false"
-                android:textColor="@android:color/white"
-                android:layout_width="@dimen/abc_panel_menu_list_width"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day7"
+                    android:text="Today"
+                    android:textColor="@android:color/white"
+                    android:editable="false"
+                    android:layout_width="@dimen/abc_panel_menu_list_width"
+                    />
 
             <TextView
                 android:textSize="@dimen/abc_text_size_body_2_material"
@@ -357,6 +574,7 @@
                 android:id="@+id/Day7Type"
                 android:textColor="@android:color/white"
                 android:text="Day7Type"
+                android:layout_below="@+id/Day7"
                 />
 
             <TextView
@@ -365,7 +583,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/Day7Temperature"
                 android:textColor="@android:color/white"
-                android:text="Day7Temperature" />
+                android:text="Day7Temperature"
+                android:layout_below="@+id/Day7Type" />
 
             <TextView
                 android:textSize="@dimen/abc_text_size_body_2_material"
@@ -374,15 +593,45 @@
                 android:id="@+id/Day7Wind"
                 android:textColor="@android:color/white"
                 android:text="Day7Wind"
+                android:layout_below="@+id/Day7Temperature"
                 />
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day7TemperatureMax"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Max."
+                    android:layout_below="@+id/Day7Wind"
+                    />
 
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day7TemperatureMin"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Min."
+                    android:layout_below="@+id/Day7TemperatureMax"
+                    />
+
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day7Pressure"
+                    android:textColor="@android:color/white"
+                    android:text="Pressure"
+                    android:layout_below="@+id/Day7TemperatureMin"
+                    />
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:layout_marginLeft="100dp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginTop="50dp"
                 android:id="@+id/imageView7"
                 />
+        </RelativeLayout>
 
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
@@ -390,14 +639,17 @@
             android:orientation="vertical"
             android:id="@+id/DayPage8">
 
-            <EditText
-                android:layout_height="wrap_content"
-                android:id="@+id/Day8"
-                android:text="Day8"
-                android:editable="false"
-                android:textColor="@android:color/white"
-                android:layout_width="@dimen/abc_panel_menu_list_width"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day8"
+                    android:text="Today"
+                    android:textColor="@android:color/white"
+                    android:editable="false"
+                    android:layout_width="@dimen/abc_panel_menu_list_width"
+                    />
 
             <TextView
                 android:textSize="@dimen/abc_text_size_body_2_material"
@@ -406,6 +658,7 @@
                 android:id="@+id/Day8Type"
                 android:textColor="@android:color/white"
                 android:text="Day8Type"
+                android:layout_below="@+id/Day8"
                 />
 
             <TextView
@@ -414,7 +667,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/Day8Temperature"
                 android:textColor="@android:color/white"
-                android:text="Day8Temperature" />
+                android:text="Day8Temperature"
+                android:layout_below="@+id/Day8Type"/>
 
 
             <TextView
@@ -424,15 +678,45 @@
                 android:id="@+id/Day8Wind"
                 android:textColor="@android:color/white"
                 android:text="Day8Wind"
+                android:layout_below="@+id/Day8Temperature"
                 />
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day8TemperatureMax"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Max."
+                    android:layout_below="@+id/Day8Wind"
+                    />
 
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day8TemperatureMin"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Min."
+                    android:layout_below="@+id/Day8TemperatureMax"
+                    />
+
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day8Pressure"
+                    android:textColor="@android:color/white"
+                    android:text="Pressure"
+                    android:layout_below="@+id/Day8TemperatureMin"
+                    />
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:layout_marginLeft="100dp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginTop="50dp"
                 android:id="@+id/imageView8"
                 />
+        </RelativeLayout>
 
         </LinearLayout>
         <LinearLayout android:layout_width="wrap_content"
@@ -440,14 +724,17 @@
             android:orientation="vertical"
             android:id="@+id/DayPage9">
 
-            <EditText
-                android:layout_height="wrap_content"
-                android:id="@+id/Day9"
-                android:text="Day9"
-                android:editable="false"
-                android:textColor="@android:color/white"
-                android:layout_width="@dimen/abc_panel_menu_list_width"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day9"
+                    android:text="Today"
+                    android:textColor="@android:color/white"
+                    android:editable="false"
+                    android:layout_width="@dimen/abc_panel_menu_list_width"
+                    />
 
             <TextView
                 android:textSize="@dimen/abc_text_size_body_2_material"
@@ -456,6 +743,7 @@
                 android:id="@+id/Day9Type"
                 android:textColor="@android:color/white"
                 android:text="Day9Type"
+                android:layout_below="@+id/Day9"
                 />
 
             <TextView
@@ -464,7 +752,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/Day9Temperature"
                 android:textColor="@android:color/white"
-                android:text="Day9Temperature" />
+                android:text="Day9Temperature"
+                android:layout_below="@+id/Day9Type" />
 
 
             <TextView
@@ -474,15 +763,45 @@
                 android:id="@+id/Day9Wind"
                 android:textColor="@android:color/white"
                 android:text="Day9Wind"
+                android:layout_below="@+id/Day9Temperature"
                 />
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day9TemperatureMax"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Max."
+                    android:layout_below="@+id/Day9Wind"
+                    />
 
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day9TemperatureMin"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Min."
+                    android:layout_below="@+id/Day9TemperatureMax"
+                    />
+
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day9Pressure"
+                    android:textColor="@android:color/white"
+                    android:text="Pressure"
+                    android:layout_below="@+id/Day9TemperatureMin"
+                    />
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:layout_marginLeft="100dp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginTop="50dp"
                 android:id="@+id/imageView9"
                 />
+        </RelativeLayout>
 
         </LinearLayout>
 
@@ -491,14 +810,17 @@
             android:orientation="vertical"
             android:id="@+id/DayPage10">
 
-            <EditText
-                android:layout_height="wrap_content"
-                android:id="@+id/Day10"
-                android:text="Day10"
-                android:editable="false"
-                android:textColor="@android:color/white"
-                android:layout_width="@dimen/abc_panel_menu_list_width"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day10"
+                    android:text="Today"
+                    android:textColor="@android:color/white"
+                    android:editable="false"
+                    android:layout_width="@dimen/abc_panel_menu_list_width"
+                    />
 
             <TextView
                 android:textSize="@dimen/abc_text_size_body_2_material"
@@ -507,6 +829,7 @@
                 android:id="@+id/Day10Type"
                 android:textColor="@android:color/white"
                 android:text="Day10Type"
+                android:layout_below="@+id/Day10"
                 />
 
             <TextView
@@ -515,7 +838,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/Day10Temperature"
                 android:textColor="@android:color/white"
-                android:text="Day10Temperature" />
+                android:text="Day10Temperature"
+                android:layout_below="@+id/Day10Type"/>
 
 
             <TextView
@@ -525,15 +849,45 @@
                 android:id="@+id/Day10Wind"
                 android:textColor="@android:color/white"
                 android:text="Day10Wind"
+                android:layout_below="@+id/Day10Temperature"
                 />
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day10TemperatureMax"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Max."
+                    android:layout_below="@+id/Day10Wind"
+                    />
 
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day10TemperatureMin"
+                    android:textColor="@android:color/white"
+                    android:text="Temp. Min."
+                    android:layout_below="@+id/Day10TemperatureMax"
+                    />
+
+                <TextView
+                    android:textSize="@dimen/abc_text_size_body_2_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Day10Pressure"
+                    android:textColor="@android:color/white"
+                    android:text="Pressure"
+                    android:layout_below="@+id/Day10TemperatureMin"
+                    />
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:layout_marginLeft="100dp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginTop="50dp"
                 android:id="@+id/imageView10"
-            />
+                />
+        </RelativeLayout>
 
 
         </LinearLayout>
@@ -555,15 +909,27 @@
     <ImageButton
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:id="@+id/imageButton"
+        android:id="@+id/smsButton"
+        android:background="@drawable/roundbutton_white"
+        android:src="@android:drawable/ic_menu_send"
+        android:layout_alignBottom="@+id/speech_button"
+        android:layout_toLeftOf="@+id/speech_button"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toStartOf="@+id/speech_button"
+        android:onClick="sendSMS"/>
+
+    <ImageButton
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:id="@+id/emailButton"
         android:background="@drawable/roundbutton_white"
         android:src="@android:drawable/ic_dialog_email"
-
-
         android:layout_alignBottom="@+id/speech_button"
         android:layout_toRightOf="@+id/speech_button"
         android:layout_marginLeft="40dp"
         android:layout_marginBottom="5dp"
-        android:layout_toEndOf="@+id/speech_button" />
+        android:layout_toEndOf="@+id/speech_button"
+        android:onClick="sendEmail"/>
 
 </RelativeLayout>

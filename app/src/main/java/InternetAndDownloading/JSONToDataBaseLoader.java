@@ -29,6 +29,7 @@ public class JSONToDataBaseLoader {
                 dataBase.setJSONString(json);
 
                 City city = dataBase.setCurrentCity(JSONObjectToCity.parseJSONObject(StringToJSONObject.getJSONObjectFromString(json, context), context));
+                dataBase.sort();
                 progressDialog.dismiss();
 
                 ofl.onFinished(city);

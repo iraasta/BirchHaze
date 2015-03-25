@@ -18,6 +18,10 @@ public class DataBase {
         JSONString = null;
     }
 
+    public void sort(){
+        this.currentCity.sort();
+    }
+
     private String JSONString;
     public void setJSONString(String s){
         JSONString = s;

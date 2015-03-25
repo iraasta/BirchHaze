@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,10 +29,13 @@ import java.util.Calendar;
 import java.util.List;
 
 import DataBase.City;
+import DataBase.DataBase;
 import DataBase.DayForecast;
+import DataBase.SendForecastByEmail;
 import InternetAndDownloading.InternetConnectionChecker;
 import InternetAndDownloading.JSONAsyncTask;
 import InternetAndDownloading.JSONToDataBaseLoader;
+import InternetAndDownloading.SmsSender;
 import Thermometer.Thermometer;
 import gwr.com.birchhaze.STT.SpeechToText;
 import gwr.com.birchhaze.background.BackgroundManager;
@@ -40,15 +44,31 @@ import gwr.com.birchhaze.background.BackgroundManager;
 public class MainActivity extends ActionBarActivity {
 
 
+    private DataBase dataBase = DataBase.getInstance();
     ViewPager viewPager = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //viewPager= (ViewPager) findViewById(R.id.pager); // Retrieve the view pager
-        //viewPager.setAdapter(new ViewGroupPagerAdapter((ViewGroup) findViewById(R.id.pager)));
+        ((ImageButton) findViewById(R.id.emailButton)).setVisibility(View.GONE);
+        ((ImageButton) findViewById(R.id.smsButton)).setVisibility(View.GONE);
 
+
+    }
+
+    public void sendEmail(View v){
+        SendForecastByEmail.SendForeCast(MainActivity.this);
+    }
+    public void sendSMS(View v){
+        String message="";
+        if(dataBase.getCity().getForecasts().size()>0){
+            message = dataBase.getCity().getForecasts().get(0).getWeather_description();
+        }else {
+            message = "Brak danych";
+        }
+        Intent newIntent  = SmsSender.send(message);
+        startActivity(newIntent);
     }
 
     ArrayList<DayForecast> forecasts = null;
@@ -171,39 +191,53 @@ public class MainActivity extends ActionBarActivity {
             int[] TypeID = {R.id.Day1Type,R.id.Day2Type,R.id.Day3Type,R.id.Day4Type,R.id.Day5Type,R.id.Day6Type,R.id.Day7Type,R.id.Day8Type,R.id.Day9Type,R.id.Day10Type};
             int[] WindID = {R.id.Day1Wind,R.id.Day2Wind,R.id.Day3Wind,R.id.Day4Wind,R.id.Day5Wind,R.id.Day6Wind,R.id.Day7Wind,R.id.Day8Wind,R.id.Day9Wind,R.id.Day10Wind};
             int[] TermometrID = {R.id.imageView1,R.id.imageView2,R.id.imageView3,R.id.imageView4,R.id.imageView5,R.id.imageView6,R.id.imageView7,R.id.imageView8,R.id.imageView9,R.id.imageView10};
+            int[] TempMaxID = {R.id.Day1TemperatureMax,R.id.Day2TemperatureMax,R.id.Day3TemperatureMax,R.id.Day4TemperatureMax,R.id.Day5TemperatureMax,R.id.Day6TemperatureMax,R.id.Day7TemperatureMax,R.id.Day8TemperatureMax,R.id.Day9TemperatureMax,R.id.Day10TemperatureMax};
+            int[] TempMinID = {R.id.Day1TemperatureMin,R.id.Day2TemperatureMin,R.id.Day3TemperatureMin,R.id.Day4TemperatureMin,R.id.Day5TemperatureMin,R.id.Day6TemperatureMin,R.id.Day7TemperatureMin,R.id.Day8TemperatureMin,R.id.Day9TemperatureMin,R.id.Day10TemperatureMin};
+            int[] PressureID = {R.id.Day1Pressure,R.id.Day2Pressure,R.id.Day3Pressure,R.id.Day4Pressure,R.id.Day5Pressure,R.id.Day6Pressure,R.id.Day7Pressure,R.id.Day8Pressure,R.id.Day9Pressure,R.id.Day10Pressure};
 
             String[] week = {"NULL","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota"};
             String today = "Dzisiaj";
             String tomorrow = "Jutro";
             String celciusString ="°C";
             String windString = "m/s";
+            String PressureString = "hPa";
 
             EditText et = (EditText) findViewById(DayID[position]);
-
-            if(position == 0)
-            et.setText(today);
-            else if(position == 1)
-            et.setText(tomorrow);
-            else
-            et.setText(week[c.get(Calendar.DAY_OF_WEEK)+position]);
 
             TextView Temperature = (TextView) findViewById(TemperatureID[position]);
             TextView Type = (TextView) findViewById(TypeID[position]);
             TextView Wind = (TextView) findViewById(WindID[position]);
+            TextView TempMax = (TextView) findViewById(TempMaxID[position]);
+            TextView TempMin = (TextView) findViewById(TempMinID[position]);
+            TextView Pressure = (TextView) findViewById(PressureID[position]);
             ImageView Termometr = (ImageView) findViewById(TermometrID[position]);
 
             if(forecasts != null) {
+
+            if(position == 0)
+            et.setText(today + ", " + forecasts.get(position).getDate_time_text());
+            else if(position == 1)
+            et.setText(tomorrow + ", " + forecasts.get(position).getDate_time_text());
+            else
+            et.setText(week[c.get(Calendar.DAY_OF_WEEK)+position] + ", " + forecasts.get(position).getDate_time_text());
+
+                ((ImageButton) findViewById(R.id.emailButton)).setVisibility(View.VISIBLE);
+                ((ImageButton) findViewById(R.id.smsButton)).setVisibility(View.VISIBLE);
 
                 double temperature;
 
                 temperature = new BigDecimal(forecasts.get(position).getTempCelsius()).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
                 Temperature.setText(temperature + celciusString);
+                temperature = new BigDecimal(forecasts.get(position).getTemp_maxCelsius()).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+                TempMax.setText(temperature + celciusString);
+                temperature = new BigDecimal(forecasts.get(position).getTemp_minCelsius()).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+                TempMin.setText(temperature + celciusString);
                 Type.setText(forecasts.get(position).getWeather_description());
                 Wind.setText(forecasts.get(position).getWind_speed()+windString);
+                Pressure.setText(forecasts.get(position).getPressure()+PressureString);
                 Thermometer t1 = new Thermometer(Termometr , getApplicationContext(), Color.BLACK , (int) temperature);
                 t1.execute();
 
-                //refresh();
             }else {
                 Temperature.setText("");
                 Type.setText("");
@@ -216,8 +250,6 @@ public class MainActivity extends ActionBarActivity {
         public void destroyItem(ViewGroup parent, int position, Object object) {
             View view = (View) object;
             parent.removeView(view);
-            //del = position;
-            //getposition();
         }
 
         @Override
@@ -230,11 +262,6 @@ public class MainActivity extends ActionBarActivity {
             return view == object;
         }
     }
-
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
