@@ -51,8 +51,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ((ImageButton) findViewById(R.id.emailButton)).setVisibility(View.GONE);
-        ((ImageButton) findViewById(R.id.smsButton)).setVisibility(View.GONE);
+        ((ImageButton) findViewById(R.id.emailButton)).setVisibility(View.INVISIBLE);
+        ((ImageButton) findViewById(R.id.smsButton)).setVisibility(View.INVISIBLE);
 
 
     }
@@ -89,6 +89,8 @@ public class MainActivity extends ActionBarActivity {
                 public void onFinished(City city) {
 
                     forecasts = city.getForecasts();
+                    ((TextView) findViewById(R.id.PromptView)).setVisibility(View.GONE);
+                    ((ImageView) findViewById(R.id.arrowView)).setVisibility(View.GONE);
                     viewPager= (ViewPager) findViewById(R.id.pager); // Retrieve the view pager
                     viewPager.setAdapter(new ViewGroupPagerAdapter((ViewGroup) findViewById(R.id.pager)));
 

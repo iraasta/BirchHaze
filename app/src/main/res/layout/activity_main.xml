@@ -709,7 +709,8 @@
                     android:text="Pressure"
                     android:layout_below="@+id/Day8TemperatureMin"
                     />
-            <ImageView
+
+                <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="300dp"
                 android:layout_marginLeft="100dp"
@@ -931,5 +932,31 @@
         android:layout_marginBottom="5dp"
         android:layout_toEndOf="@+id/speech_button"
         android:onClick="sendEmail"/>
+
+    <TextView
+        android:textSize="30dp"
+        android:background="@drawable/bkg"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:text="Naciśnij poniższy przycisk aby wyszukać pogodę"
+        android:id="@+id/PromptView"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/smsButton"
+        android:layout_alignStart="@+id/smsButton"
+        android:layout_alignRight="@+id/emailButton"
+        android:layout_alignEnd="@+id/emailButton" />
+
+    <ImageView
+        android:layout_marginTop="-30dp"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:src="@drawable/arrow"
+        android:id="@+id/arrowView"
+        android:layout_below="@+id/PromptView"
+        android:layout_centerHorizontal="true"
+        />
+
 
 </RelativeLayout>
