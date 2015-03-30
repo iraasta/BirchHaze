@@ -1,15 +1,14 @@
 package gwr.com.birchhaze;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.nfc.Tag;
+import android.graphics.drawable.TransitionDrawable;
+import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.graphics.Bitmap;
-import android.graphics.drawable.TransitionDrawable;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +18,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,8 +30,6 @@ import DataBase.City;
 import DataBase.DataBase;
 import DataBase.DayForecast;
 import DataBase.SendForecastByEmail;
-import InternetAndDownloading.InternetConnectionChecker;
-import InternetAndDownloading.JSONAsyncTask;
 import InternetAndDownloading.JSONToDataBaseLoader;
 import InternetAndDownloading.SmsSender;
 import Thermometer.Thermometer;
@@ -63,7 +59,12 @@ public class MainActivity extends ActionBarActivity {
     public void sendSMS(View v){
         String message="";
         if(dataBase.getCity().getForecasts().size()>0){
-            message = dataBase.getCity().getForecasts().get(0).getWeather_description();
+            DayForecast df = dataBase.getCity().getForecasts().get(0);
+            message = "Data: "+df.getDate_time_text()+
+                    "\nTemperatura: "+df.getTempCelsius()+" °C"+
+                    "\nOpis pogody: "+df.getWeather_description()+
+                    "\nCiśnienie: "+df.getPressure()+" hPa"+
+                    "\nWiatr: "+df.getWind_speed()+" m/s";
         }else {
             message = "Brak danych";
         }

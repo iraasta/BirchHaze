@@ -1,6 +1,7 @@
 package Converters;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -11,6 +12,7 @@ import org.json.JSONObject;
  */
 public final class StringToJSONObject {
     public static JSONObject getJSONObjectFromString(String s){
+        Log.v("f",s);
         try {
             JSONObject jsonObject = new JSONObject(s);
             return jsonObject;

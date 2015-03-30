@@ -2,6 +2,7 @@ package InternetAndDownloading;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.util.Log;
 
 import Converters.JSONObjectToCity;
 import Converters.StringToJSONObject;
@@ -29,14 +30,15 @@ public class JSONToDataBaseLoader {
                 dataBase.setJSONString(json);
 
                 City city = dataBase.setCurrentCity(JSONObjectToCity.parseJSONObject(StringToJSONObject.getJSONObjectFromString(json, context), context));
-                dataBase.sort();
+                //dataBase.sort();
                 progressDialog.dismiss();
 
                 ofl.onFinished(city);
 
             }
         });
-        String url = Settings.WEATHER_API_LINK+city;
+        String url = Settings.WEATHER_API_LINK+city+"&lang=pl&cnt=10";
+        Log.v("fdgfd",url);
         task.execute(url);
     }
 

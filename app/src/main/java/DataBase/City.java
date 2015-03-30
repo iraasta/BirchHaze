@@ -64,36 +64,36 @@ public class City {
         this.population = population;
     }
 
-    public void sort(){
-        String tmp="";
-        ArrayList<DayForecast> sortedForecasts = new ArrayList<DayForecast>();
-
-        ArrayList<DayForecast> qwe = forecasts;
-        forecasts = new ArrayList<DayForecast>();
-
-
-        if(qwe.size()>0){
-            forecasts.add(qwe.get(0));
-            for(int i=1 ; i<qwe.size() ; i++){
-                if((qwe.get(i).getDate_time_text().toCharArray())[11]=='1')
-                    forecasts.add(qwe.get(i));
-            }
-
-
-
-            sortedForecasts.add(forecasts.get(0));
-            tmp = forecasts.get(0).getDate_time_text();
-            for(int i=1;i<forecasts.size();i++){
-                if(((tmp.toCharArray())[9]!=(forecasts.get(i).getDate_time_text().toCharArray())[9]))
-                    sortedForecasts.add(forecasts.get(i));
-
-                tmp = forecasts.get(i).getDate_time_text();
-            }
-        }
-
-        forecasts = sortedForecasts;
-
-    }
+//    public void sort(){
+//        String tmp="";
+//        ArrayList<DayForecast> sortedForecasts = new ArrayList<DayForecast>();
+//
+//        ArrayList<DayForecast> qwe = forecasts;
+//        forecasts = new ArrayList<DayForecast>();
+//
+//
+//        if(qwe.size()>0){
+//            forecasts.add(qwe.get(0));
+//            for(int i=1 ; i<qwe.size() ; i++){
+//                if((qwe.get(i).getDate_time_text().toCharArray())[11]=='1')
+//                    forecasts.add(qwe.get(i));
+//            }
+//
+//
+//
+//            sortedForecasts.add(forecasts.get(0));
+//            tmp = forecasts.get(0).getDate_time_text();
+//            for(int i=1;i<forecasts.size();i++){
+//                if(((tmp.toCharArray())[9]!=(forecasts.get(i).getDate_time_text().toCharArray())[9]))
+//                    sortedForecasts.add(forecasts.get(i));
+//
+//                tmp = forecasts.get(i).getDate_time_text();
+//            }
+//        }
+//
+//        forecasts = sortedForecasts;
+//
+//    }
 
     public void setName(String name){
         this.name = name;
