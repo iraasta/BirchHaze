@@ -12,7 +12,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.text.Normalizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,8 +23,9 @@ public class BackgroundManager {
     public static void loadBackground(String name, Context context, final OnLoadListener oll){
 
 // Instantiate the RequestQueue.
+
         RequestQueue queue = Volley.newRequestQueue(context);
-        final String url ="http://www." + stripText(name).replace(" ", "_") +  ".jpg.to";
+        final String url ="http://" + stripText(name).replace(" ", "_") +  ".jpg.to/xl+jpg";
         Log.v("uri", Uri.parse(url).toString());
 
 // Request a string response from the provided URL.
@@ -43,7 +43,7 @@ public class BackgroundManager {
                             @Override
                             public void run() {
                                 Bitmap b = BitmapLoader.loadBitmap(url);
-                                oll.onLoaded(fastblur(b,10));
+                                oll.onLoaded(b);
                             }
                         }).start();
                     }
