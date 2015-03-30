@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="City"
         android:textSize="50dp"
-        android:textStyle="bold|italic"
+        android:textStyle="bold"
         android:textColor="@color/link_text_material_light"
         android:textColorHighlight="@color/accent_material_dark"
         android:id="@+id/CityView"

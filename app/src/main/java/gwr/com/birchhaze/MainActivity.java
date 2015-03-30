@@ -53,7 +53,7 @@ public class MainActivity extends ActionBarActivity {
 
         ((ImageButton) findViewById(R.id.emailButton)).setVisibility(View.INVISIBLE);
         ((ImageButton) findViewById(R.id.smsButton)).setVisibility(View.INVISIBLE);
-
+         findViewById(R.id.CityView).setVisibility(View.GONE);
 
     }
 
@@ -65,7 +65,7 @@ public class MainActivity extends ActionBarActivity {
         if(dataBase.getCity().getForecasts().size()>0){
             message = dataBase.getCity().getForecasts().get(0).getWeather_description();
         }else {
-            message = "Brak danych";
+            message = getResources().getString(R.string.fail);
         }
         Intent newIntent  = SmsSender.send(message);
         startActivity(newIntent);
@@ -197,12 +197,12 @@ public class MainActivity extends ActionBarActivity {
             int[] TempMinID = {R.id.Day1TemperatureMin,R.id.Day2TemperatureMin,R.id.Day3TemperatureMin,R.id.Day4TemperatureMin,R.id.Day5TemperatureMin,R.id.Day6TemperatureMin,R.id.Day7TemperatureMin,R.id.Day8TemperatureMin,R.id.Day9TemperatureMin,R.id.Day10TemperatureMin};
             int[] PressureID = {R.id.Day1Pressure,R.id.Day2Pressure,R.id.Day3Pressure,R.id.Day4Pressure,R.id.Day5Pressure,R.id.Day6Pressure,R.id.Day7Pressure,R.id.Day8Pressure,R.id.Day9Pressure,R.id.Day10Pressure};
 
-            String[] week = {"NULL","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota","Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota"};
-            String today = "Dzisiaj";
-            String tomorrow = "Jutro";
-            String celciusString ="°C";
-            String windString = "m/s";
-            String PressureString = "hPa";
+            String[] week = {getResources().getString(R.string.nullstring), getResources().getString(R.string.sunday),getResources().getString(R.string.monday),getResources().getString(R.string.thursday),getResources().getString(R.string.wednesday),getResources().getString(R.string.thursday),getResources().getString(R.string.friday),getResources().getString(R.string.saturday),getResources().getString(R.string.sunday),getResources().getString(R.string.monday),getResources().getString(R.string.thursday),getResources().getString(R.string.wednesday),getResources().getString(R.string.thursday),getResources().getString(R.string.friday),getResources().getString(R.string.saturday)};
+            String today = getResources().getString(R.string.today);
+            String tomorrow = getResources().getString(R.string.tomorrow);
+            String celciusString = getResources().getString(R.string.celciusString);
+            String windString = getResources().getString(R.string.windString);
+            String PressureString = getResources().getString(R.string.PressureString);
 
             EditText et = (EditText) findViewById(DayID[position]);
 
@@ -225,6 +225,7 @@ public class MainActivity extends ActionBarActivity {
 
                 ((ImageButton) findViewById(R.id.emailButton)).setVisibility(View.VISIBLE);
                 ((ImageButton) findViewById(R.id.smsButton)).setVisibility(View.VISIBLE);
+                findViewById(R.id.CityView).setVisibility(View.VISIBLE);
 
                 double temperature;
 
@@ -277,11 +278,6 @@ public class MainActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
